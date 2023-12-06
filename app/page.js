@@ -3,8 +3,44 @@ import styles from './page.module.css'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
+    <>
+      <header>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <div>
+                  <a><span>WORK</span></a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a><span>INFO</span></a>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <a><span>CONTACT</span></a>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      
+      <main className={styles.main}>
+        
+      </main>
+      
+      <footer>
+
+      </footer>
+    </>
+  )
+}
+
+
+{/* <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>app/page.js</code>
@@ -89,7 +125,4 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
-      </div>
-    </main>
-  )
-}
+      </div> */}
