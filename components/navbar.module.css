@@ -1,0 +1,33 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navList {
+    list-style-type: none; /* 移除列表项的符号 */
+    padding: 0; /* 移除默认的内边距 */
+    margin: 0; /* 移除默认的外边距 */
+    display: flex; /* 使用 Flexbox 布局 */
+}
+
+.navList li {
+    margin-right: 30px; /* 在列表项之间添加一些间距 */
+    font-size: 56px; /* 设置字体大小 */
+    font-weight: 400; /* 加粗字体 */
+}
+
+.navList li a {
+    text-decoration: none; /* 移除下划线 */
+    transition: color 0.3s ease; /* 添加颜色渐变效果，持续时间 0.3 秒 */
+    cursor: pointer; /* 鼠标悬停时显示手形指针 */
+}
+
+.navList li a::selection {
+    color: black; /* 被选择文本的颜色 */
+}
+
+.navList li a:hover {
+    color: rgb(112, 112, 112); /* 鼠标悬停时改变颜色 */
+}
+
