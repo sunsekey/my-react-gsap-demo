@@ -1,7 +1,5 @@
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
+.navBar {
+    overflow-y: scroll;
 }
 
 .navList {
@@ -12,8 +10,8 @@
 }
 
 .navList li {
-    margin-right: 30px; /* 在列表项之间添加一些间距 */
-    font-size: 56px; /* 设置字体大小 */
+    margin-right: 2vw; /* 在列表项之间添加一些间距 */
+    font-size: 1.4vw; /* 设置字体大小 */
     font-weight: 400; /* 加粗字体 */
 }
 

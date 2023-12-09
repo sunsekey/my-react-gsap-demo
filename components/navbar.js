@@ -1,37 +1,51 @@
 'use client'
 
-import { useEffect } from 'react';
+import React, { useEffect, useRef,useState } from 'react';
 import { gsap } from 'gsap';
 import style from './navbar.module.css'
 
 export default function Navbar() {
+    const elementRef = useRef(null);
+    const [lastScrollTop, setLastScrollTop] = useState(0);
+    const [scrollDown, setScrollDown] = useState(true);
+
     useEffect(() => {
-        let lastScrollTop = 0;
-        console.log("c")
+        const element = elementRef.current;
+
         const handleScroll = () => {
-          let st = window.pageYOffset || document.documentElement.scrollTop;
-          if (st > lastScrollTop) {
-            console.log("a")
-            // 向下滚动
-            gsap.to(".navbar", { top: "-100px", duration: 0.5 });
-          } else {
-            console.log("b")
-            // 向上滚动
-            gsap.to(".navbar", { top: "0px", duration: 0.5 });
-          }
-          lastScrollTop = st <= 0 ? 0 : st;
+            const currentScrollTop = element.scrollTop;
+            console.log(currentScrollTop, lastScrollTop)
+            if (currentScrollTop > lastScrollTop) {
+                setScrollDown(true);
+            } else if (currentScrollTop < lastScrollTop) {
+                setScrollDown(false);
+            }
+            setLastScrollTop(currentScrollTop);
+            
+            if(scrollDown && currentScrollTop != 0){
+                gsap.to(element, { y: currentScrollTop * 1 - 100, duration:1});
+            }else{
+                gsap.to(element, { y: currentScrollTop * 1 , duration:1});
+            }
+
         };
+
+        if (element) {
+            element.addEventListener('scroll', handleScroll);
+        }
     
-        window.addEventListener("scroll", handleScroll);
-    
+        // 清理函数
         return () => {
-          window.removeEventListener("scroll", handleScroll);
+            if (element) {
+                element.removeEventListener('scroll', handleScroll);
+            }
         };
-      }, []);
+    }, [lastScrollTop, scrollDown]); // 将 lastScrollTop 加入依赖数组
+
     return (
         <>
-            <div>
-                <nav className={style.navbar}>
+            <div className={style.navBar} ref={elementRef}>
+                <nav>
                     <ul className={style.navList}>
                         <li>
                             <div>

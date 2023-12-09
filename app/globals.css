@@ -85,6 +85,11 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  /* 固定定位可以阻止默认的滚动行为 */
+  position: fixed;
+  /* 阻止滚动 */
+  overflow-y: hidden;
+  height: 100%;
 }
 
 body {
@@ -112,4 +117,10 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.scroll-container {
+  overflow-y: scroll; /* 允许垂直滚动 */
+  -webkit-overflow-scrolling: touch; /* 优化iOS设备上的滚动 */
+  height: 100%; /* 根据需要调整高度 */
 }
